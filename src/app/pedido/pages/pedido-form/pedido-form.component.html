@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-md-8 order-md-2">
+    <h4 class="mb-3">Carrinho</h4>
+    <table class="table">
+      <thead>
+        <th>Descrição</th>
+        <th>Preço Unitário</th>
+        <th>Quantidade</th>
+        <th>Total</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of itensPedido">
+          <td>{{p.descricao}}</td>
+          <td>{{p.preco  | currency: 'R$'}}</td>
+          <td><input class="form-control" style="max-width: 100px" type="number" [(ngModel)]="p.quantidade"></td>
+          <td>{{p.preco * p.quantidade  | currency: 'R$'}}</td>
+    
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>Total do Pedido:</td>
+          <td>{{ getTotalItens() | currency: 'R$'}}</td>
+        </tr>
+      </tfoot>
+    
+    </table>
+  </div>
+  <div class="col-md-4 order-md-1">
+    <h4 class="mb-3">Pedido</h4>
+    
+      <div class="row">
+          <div class="col-md-12 mb-3">
+              <label for="nome">Nome</label>
+              <input class="form-control" id="nome" [(ngModel)]="nome" placeholder="Nome do comprador" value="" required="" type="text">
+              <div class="invalid-feedback">
+                É preciso informar o nome.
+              </div>
+            </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12 mb-3">
+              <label for="localEntrega">Local de Entrega</label>
+              <input class="form-control" id="localEntrega" [(ngModel)]="localEntrega" placeholder="Exemplo: T.I - Mesa 02" value="" required="" type="text">
+              <div class="invalid-feedback">
+                É preciso informar o Local de Entrega.
+              </div>
+            </div>
+      </div>
+      <hr class="mb-4">
+      <div class="row">
+          <button class="btn btn-primary btn-lg btn-block"
+          (click)="finalizarPedido()"
+          >Finalizar Pedido</button>
+      </div>    
+  </div>
+  
+</div>

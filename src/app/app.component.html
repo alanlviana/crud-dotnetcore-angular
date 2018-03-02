@@ -1,14 +1,4 @@
-<table class="table">
-    <thead>
-        <th>id</th>
-        <th>descrição</th>
-        <th>preço</th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let p of produtos">
-            <td>{{p.id}}</td>
-            <td>{{p.descricao}}</td>
-            <td>{{p.preco}}</td>
-        </tr>
-    </tbody>
-</table>
+<app-navbar></app-navbar>
+<div class="container">
+    <router-outlet></router-outlet>    
+</div>
