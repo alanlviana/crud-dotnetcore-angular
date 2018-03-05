@@ -13,7 +13,7 @@ export class PedidoFormComponent implements OnInit {
   localEntrega: string = "";
   itensPedido : any = [];
 
-  baseUrl:string = "http://127.0.0.1:5000/";
+  baseUrl:string = "";
 
   constructor(private _http: Http){
     
