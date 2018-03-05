@@ -1,19 +1,22 @@
 <header>
   <!-- Fixed navbar -->
-  <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">Pão de Mel</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/pedido/new" routerLinkActive="active">Novo Pedido</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/pedido/list" routerLinkActive="active">Pedidos</a>
-        </li>
-      </ul>
+  <nav class="navbar navbar-expand-md mb-4 navbar-dark bg-primary">
+    <div class="container d-flex justify-content-between">
+      <a class="navbar-brand" href="#">Pão de Mel</a>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/pedido/new" routerLinkActive="active">Novo Pedido</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/pedido/list" routerLinkActive="active">Pedidos</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 </header>

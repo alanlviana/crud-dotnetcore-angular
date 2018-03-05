@@ -8,15 +8,10 @@ import { Http  } from '@angular/http';
 })
 export class AppComponent implements OnInit {
   title = 'app';
-  produtos : any = null;
-
   constructor(private _http: Http){
 
   }
 
-  ngOnInit(){
-    this._http.get("/api/produto").subscribe(result => 
-    this.produtos = result.json());
-  }
+  ngOnInit(){  }
 
 }

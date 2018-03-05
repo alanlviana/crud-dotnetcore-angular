@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-8 order-md-2">
     <h4 class="mb-3">Carrinho</h4>
-    <table class="table">
+    <table class="table table-bordered">
       <thead>
         <th>Descrição</th>
         <th>Preço Unitário</th>
@@ -11,10 +11,11 @@
       <tbody>
         <tr *ngFor="let p of itensPedido">
           <td>{{p.descricao}}</td>
-          <td>{{p.preco  | currency: 'R$'}}</td>
-          <td><input class="form-control" style="max-width: 100px" type="number" [(ngModel)]="p.quantidade"></td>
-          <td>{{p.preco * p.quantidade  | currency: 'R$'}}</td>
-    
+          <td>{{p.preco | currency: 'R$ '}}</td>
+          <td>
+            <input class="form-control" style="max-width: 100px" type="number" [(ngModel)]="p.quantidade">
+          </td>
+          <td style="min-width: 100px">{{p.preco * p.quantidade | currency: 'R$ '}}</td>
         </tr>
       </tbody>
       <tfoot>
@@ -22,39 +23,74 @@
           <td></td>
           <td></td>
           <td>Total do Pedido:</td>
-          <td>{{ getTotalItens() | currency: 'R$'}}</td>
+          <td>{{ getTotalItens() | currency: 'R$ '}}</td>
         </tr>
       </tfoot>
-    
+
     </table>
   </div>
   <div class="col-md-4 order-md-1">
     <h4 class="mb-3">Pedido</h4>
-    
-      <div class="row">
-          <div class="col-md-12 mb-3">
-              <label for="nome">Nome</label>
-              <input class="form-control" id="nome" [(ngModel)]="nome" placeholder="Nome do comprador" value="" required="" type="text">
-              <div class="invalid-feedback">
-                É preciso informar o nome.
-              </div>
-            </div>
+
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <label for="nome">Nome</label>
+        <input class="form-control" id="nome" [(ngModel)]="nome" placeholder="Nome do comprador" value="" required="" type="text">
+        <div class="invalid-feedback">
+          É preciso informar o nome.
+        </div>
       </div>
-      <div class="row">
-          <div class="col-md-12 mb-3">
-              <label for="localEntrega">Local de Entrega</label>
-              <input class="form-control" id="localEntrega" [(ngModel)]="localEntrega" placeholder="Exemplo: T.I - Mesa 02" value="" required="" type="text">
-              <div class="invalid-feedback">
-                É preciso informar o Local de Entrega.
-              </div>
-            </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <label for="localEntrega">Local de Entrega</label>
+        <input class="form-control" id="localEntrega" [(ngModel)]="localEntrega" placeholder="Exemplo: T.I - Mesa 02" value="" required=""
+          type="text">
+        <div class="invalid-feedback">
+          É preciso informar o Local de Entrega.
+        </div>
       </div>
-      <hr class="mb-4">
-      <div class="row">
-          <button class="btn btn-primary btn-lg btn-block"
-          (click)="finalizarPedido()"
-          >Finalizar Pedido</button>
-      </div>    
+    </div>
+    <hr class="mb-4">
+    <h4 class="mb-3">Pagamento</h4>
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <label for="cc-identificacao">CPF</label>
+        <input class="form-control" id="cc-identificacao" placeholder="" value="" required=""
+          type="text">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <label for="cc-name">Nome no Cartão</label>
+        <input class="form-control" id="cc-name" placeholder="" value="" required=""
+          type="text">
+        <small class="text-muted">Nome completo como impresso no cartão</small>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <label for="cc-number">Número do Cartão</label>
+        <input class="form-control" id="cc-number" placeholder="" value="" required=""
+          type="text">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="cc-expiration">Vencimento</label>
+        <input class="form-control" id="cc-expiration" placeholder="MM/YYYY" value="" required=""
+          type="text">
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="cc-cvv">CVV</label>
+        <input class="form-control" id="cc-cvv" placeholder="" value="" required=""
+          type="text">
+      </div>
+
+    </div>
+    <div class="row">
+      <button class="btn btn-primary btn-lg btn-block" (click)="finalizarPedido()">Finalizar Pedido</button>
+    </div>
   </div>
-  
+
 </div>

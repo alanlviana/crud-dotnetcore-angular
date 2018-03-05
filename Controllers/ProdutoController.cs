@@ -10,10 +10,10 @@ namespace api.Controllers{
     [Route("api/[controller]")]
     public class ProdutoController:Controller{
 
-        private List<Produto> Produtos = new List<Produto>{
-                new Produto(){Id="1",Descricao="Pão de Mel - Doce de Leite",Preco=3},
-                new Produto(){Id="2",Descricao="Pão de Mel - Chocolate",Preco=3.5},
-                new Produto(){Id="3",Descricao="Pão de Mel - Paçoca",Preco=4.5}
+        public static List<Produto> Produtos = new List<Produto>{
+                new Produto(){Id=1,Descricao="Pão de Mel - Doce de Leite",Preco=3},
+                new Produto(){Id=2,Descricao="Pão de Mel - Chocolate",Preco=3.5},
+                new Produto(){Id=3,Descricao="Pão de Mel - Paçoca",Preco=4.5}
         };
          
         // GET api/values

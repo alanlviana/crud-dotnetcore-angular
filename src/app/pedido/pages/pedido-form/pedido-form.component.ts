@@ -11,14 +11,16 @@ export class PedidoFormComponent implements OnInit {
 
   nome: string = "";
   localEntrega: string = "";
-  itensPedido : any = null;
+  itensPedido : any = [];
+
+  baseUrl:string = "http://127.0.0.1:5000/";
 
   constructor(private _http: Http){
     
   }
 
   ngOnInit(){
-    this._http.get("api/produto").subscribe(result => {
+    this._http.get(this.baseUrl+"api/produto").subscribe(result => {
       this.itensPedido = result.json().map((produto)=>{
         produto.quantidade = 0;
         return produto;
@@ -29,23 +31,27 @@ export class PedidoFormComponent implements OnInit {
 
   getTotalItens(){
     return this.itensPedido.map( i => i.preco * i.quantidade)
-                      .reduce((sum,current) => sum + current);
+                      .reduce((sum,current) => sum + current,0);
   }
 
   finalizarPedido(){
-    var pedido : any = {
+    
+    var itensParaEnvio = this.itensPedido.filter(item => item.quantidade > 0);
+    
+    var checkout : any = {
       "nomeCliente": this.nome,
       "enderecoCliente": this.localEntrega,
-      "valorTotal": this.getTotalItens(),
-      "itens": this.itensPedido.map(i => {
+      "cardToken": "1234",
+      "itens": itensParaEnvio.map(i => {
         return {
-          "descricao": i.descricao,
-          "valorUnitario": i.preco * i.quantidade
+          "produtoId": i.id,
+          "quantidade": i.quantidade
         };
       })
     };
-
-    console.log(pedido);
+    this._http.post(this.baseUrl+"api/checkout",checkout).subscribe(result => {
+      console.log(result);
+    });
   }
 
 

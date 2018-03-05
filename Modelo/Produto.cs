@@ -4,7 +4,7 @@ namespace api.Modelo{
 
     public class Produto{
 
-        public string Id;
+        public int Id;
         public string Descricao;
         public double Preco;
 
