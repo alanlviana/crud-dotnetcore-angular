@@ -19,5 +19,10 @@
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.1" />
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.1" />
   </ItemGroup>
+  
+  <Target Name="Build Angular" Condition="'$(Configuration)'=='Release'" BeforeTargets="Build">    
+   <Message Text="* * * * * * Building Angular App * * * * * *" Importance="high" />
+   <Exec Command="ng build -prod -aot" />
+  </Target>
 
 </Project>

@@ -26,7 +26,6 @@ Bin/
 obj/
 Obj/
 node_modules/
-wwwroot/
 .vscode/
 
 # Visual Studio 2015 cache/options directory
